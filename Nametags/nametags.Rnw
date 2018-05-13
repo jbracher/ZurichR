@@ -1,0 +1,59 @@
+%%%%%%% Create 7x2 nametags on A4 paper for Zurich R User meetup
+
+% paper size
+\documentclass[a4paper,10pt]{letter}
+
+% additional packages:
+\usepackage{geometry}
+\geometry{margin=0in}
+\usepackage{times}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} % for umlauts etc
+
+% load ticket.sty with the appropriate ticket definition
+\usepackage[freepin, crossmark]{ticket} % crosspin adds the little crosses for cutting
+\ticketNumbers{2}{7}
+\ticketSize{80}{42.5}
+
+% default ticket
+\renewcommand{\ticketdefault}{%
+  \put(50,  3){\includegraphics[width=15mm, clip, trim = 0 0 0 9mm]{logo.png}}
+  \put( 7, 10){Zurich R User Group}
+}
+
+% now what do you like to put in your ticket
+\newcommand{\confpin}[1]{\ticket{%
+    \put(35,26){\makebox[0mm]{\bfseries\Large #1}}
+}}
+
+
+\begin{document}
+\fontfamily{pnss}\selectfont
+\sffamily
+\setlength{\voffset}{-1.15in}
+\setlength{\headsep}{0in}
+\setlength{\headheight}{0pt}
+
+<<results='asis', echo=FALSE>>=
+library(stringi)
+# setwd("~/Documents/Meetup/ZurichR/Nametags/")
+dat <- read.csv("R_for_spatial_analysis.csv")
+rsvp <- as.character(subset(dat, RSVP == "Yes")$Name)
+
+# add people who were not on list but are invited personally (e.g. speakers without meetup account)
+rsvp <- c(rsvp,
+          "John Doe")
+
+# function to print a pin:
+print_confpin <- function(name){
+  cat(paste0("\\confpin{", name, "}"))
+}
+
+# print the pins:
+for(name in rsvp){
+  print_confpin(name)
+}
+@
+
+\end{document}
