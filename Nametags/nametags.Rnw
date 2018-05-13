@@ -12,13 +12,13 @@
 \usepackage[utf8]{inputenc} % for umlauts etc
 
 % load ticket.sty with the appropriate ticket definition
-\usepackage[freepin, crossmark]{ticket} % crosspin adds the little crosses for cutting
+\usepackage[freepin]{ticket} % add option "crossmark" to add the little crosses for cutting
 \ticketNumbers{2}{7}
 \ticketSize{80}{42.5}
 
 % default ticket
 \renewcommand{\ticketdefault}{%
-  \put(50,  3){\includegraphics[width=15mm, clip, trim = 0 0 0 9mm]{logo.png}}
+  \put(50,  3){\includegraphics[width=15mm, clip, trim = 0 0 1.1 8.4mm]{logo.png}}
   \put( 7, 10){Zurich R User Group}
 }
 
