@@ -18,7 +18,7 @@
 
 % default ticket
 \renewcommand{\ticketdefault}{%
-  \put(50,  3){\includegraphics[width=15mm, clip, trim = 0 0 1.1 8.4mm]{logo.png}}
+  \put(50,  8){\includegraphics[width=15mm, clip, trim = 0 0 1.1 8.4mm]{logo.png}}
   \put( 7, 10){Zurich R User Group}
 }
 
