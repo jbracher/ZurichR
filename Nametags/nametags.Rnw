@@ -1,4 +1,5 @@
 %%% Create name tags from meetup csv file, using knitr and the ticket package in LaTeX
+%%% Johannes Bracher (firstname.lastname@uzh.ch), 2019
 
 %%%%%%% Create 7x2 nametags on A4 paper for Zurich R User meetup
 
