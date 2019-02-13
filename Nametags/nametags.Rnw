@@ -1,3 +1,5 @@
+%%% Create name tags from meetup csv file, using knitr and the ticket package in LaTeX
+
 %%%%%%% Create 7x2 nametags on A4 paper for Zurich R User meetup
 
 % paper size
@@ -38,12 +40,12 @@
 <<results='asis', echo=FALSE>>=
 library(stringi)
 # setwd("~/Documents/Meetup/ZurichR/Nametags/")
-dat <- read.csv("R_for_spatial_analysis.csv")
+dat <- read.csv("participants.csv")
 rsvp <- as.character(subset(dat, RSVP == "Yes")$Name)
 
 # add people who were not on list but are invited personally (e.g. speakers without meetup account)
 rsvp <- c(rsvp,
-          "John Doe")
+        "Invited Guest (added in Rnw)")
 
 # function to print a pin:
 print_confpin <- function(name){
