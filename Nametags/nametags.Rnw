@@ -14,37 +14,39 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc} % for umlauts etc
 
-% load ticket.sty with the appropriate ticket definition
+% load the ticket package:
 \usepackage[freepin]{ticket} % add option "crossmark" to add the little crosses for cutting
-\ticketNumbers{2}{7}
-\ticketSize{80}{42.5}
+\ticketNumbers{2}{7} % how many tickets per page?
+\ticketSize{80}{42.5} % size
 
-% default ticket
+% define ticket layout:
 \renewcommand{\ticketdefault}{%
   \put(50,  8){\includegraphics[width=15mm, clip, trim = 0 0 1.1 8.4mm]{logo.png}}
   \put( 7, 10){Zurich R User Group}
 }
-
-% now what do you like to put in your ticket
 \newcommand{\confpin}[1]{\ticket{%
     \put(35,26){\makebox[0mm]{\bfseries\Large #1}}
 }}
 
 
 \begin{document}
-\fontfamily{pnss}\selectfont
+\fontfamily{pnss}\selectfont % font
 \sffamily
-\setlength{\voffset}{-1.15in}
+\setlength{\voffset}{-1.15in} % adapt some page settings
 \setlength{\headsep}{0in}
 \setlength{\headheight}{0pt}
 
+% everything else happens in the following chunk...
 <<results='asis', echo=FALSE>>=
-library(stringi)
-# setwd("~/Documents/Meetup/ZurichR/Nametags/")
+# results='asis' to have the generated code used as is in the tex file
+
+# get participants list:
 dat <- read.csv("participants.csv")
+# choose those with RSVP == "Yes"
 rsvp <- as.character(subset(dat, RSVP == "Yes")$Name)
 
-# add people who were not on list but are invited personally (e.g. speakers without meetup account)
+# add people who were not on list but are invited personally
+# (e.g. speakers without meetup account)
 rsvp <- c(rsvp,
         "Invited Guest (added in Rnw)")
 
