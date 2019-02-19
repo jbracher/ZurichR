@@ -1,7 +1,7 @@
 # ZurichR
 Some code concerning the Zurich R User Meetup
 
-### Instuctions for name tags:
+### Instructions for name tags:
 
 - Replace `"participants.csv"` by the list of participants from the meetup webpage
 - If necessary adapt command `\ticketNumbers{2}{7}` to change the number of name tags per sheet.
